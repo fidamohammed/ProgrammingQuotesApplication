@@ -22,6 +22,7 @@ import org.mockito.kotlin.doThrow
 import org.mockito.kotlin.whenever
 import retrofit2.HttpException
 import retrofit2.Response
+import java.net.UnknownHostException
 
 class QuotesViewModelTest{
 
@@ -61,5 +62,14 @@ class QuotesViewModelTest{
         }
     }
 
+    @Test
+    fun `getQuotes with error`() = runBlocking{
+        whenever(repository.getQuotes())
+            .thenAnswer{ throw Exception("No Internet connection")}
+        quotesViewModel.getQuotes()
+        quotesViewModel.quotes.asLiveData().observeForever {
+            assertEquals(UiState.Error("Error -> No Internet connection"),it)
+        }
+    }
 
 }
