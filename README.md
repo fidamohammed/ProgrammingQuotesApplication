@@ -25,7 +25,6 @@ The app utilises Quotes API(https://programming-quotes-api.herokuapp.com/) to fe
 - Dependency Injection
     - Hilt - Easier way to incorporate Dagger DI into Android apps.
 - Material Components for Android - Modular and customizable Material Design UI components for Android.
-- Gradle Kotlin DSL - For writing Gradle build scripts using Kotlin.
 
 ## Improvements:
 - Multi Module
